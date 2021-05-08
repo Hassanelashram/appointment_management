@@ -12,19 +12,12 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
-// ----------------------------------------------------
-// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-// WRITE YOUR OWN JS STARTING FROM HERE 👇
-// ----------------------------------------------------
-
 // External imports
 import "bootstrap";
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 
+import { calendar } from "../plugins/init_flatpickr"
+import "flatpickr/dist/flatpickr.min.css";
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  calendar();
 });

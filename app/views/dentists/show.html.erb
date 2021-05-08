@@ -4,7 +4,7 @@
             <%= @dentist.name %>
         </h2>
         <div class="col">
-            calendar goes here
+            <input type="text" placeholder="Start date - End date" name='startdate' id="start-date" class="form-control calendar mb-3" required>
             <%= link_to "View times", root_url, class: "w-100 btn btn-success" if user_signed_in? %>
             <%= link_to "Please sign in to view times", new_user_registration_path, class: "btn btn-success" unless user_signed_in? %>
         </div>
