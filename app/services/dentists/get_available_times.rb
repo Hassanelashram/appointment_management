@@ -2,11 +2,14 @@ module Dentists
   class GetAvailableTimes
     def initialize(dentist, start_date, end_date)
       @dentist = dentist
-      @start_date = start_date.to_time.localtime
-      @end_date = end_date.to_time.localtime
+      @start_date = start_date&.to_time&.localtime
+      @end_date = end_date&.to_time&.localtime
     end
 
     def call
+      return "Dentist missing" unless @dentist
+      return "Date is incomplete" unless @start_date && @end_date
+
       total_slots = []
 
       # calculate how many 30 minutes slots are in a day ( easy thanks to rails 6.1)
