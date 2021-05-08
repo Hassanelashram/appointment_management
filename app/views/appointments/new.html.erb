@@ -2,6 +2,6 @@
     <h2 class="col-12">You are viewing the times for <%= @dentist.name %></h2>
     <%= simple_form_for [@dentist, Appointment.new] do |f| %>
         <%= f.input :start_date, as: :select, collection: @available_times, label: false %>
-        <%= f.submit %>
+        <%= f.submit "Book appointments", class: "btn btn-success w-100" %>
     <% end %>
 </div>

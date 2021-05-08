@@ -32,7 +32,7 @@ module Dentists
 
     private
 
-    attr_accessor :dentist
+    attr_accessor :dentist, :start_date, :end_date
 
     def booked_slots(day)
       appointments(day).concat(lunch_time(day)).map do |time|

@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_dentist, only: %i[new create]
+  before_action :missing_date, only: %i[new]
   def index
   end
 
@@ -35,5 +36,12 @@ class AppointmentsController < ApplicationController
     Dentists::GetAvailableTimes.new(@dentist, start_date, end_date).call.map do |time|
       [time.strftime("%Y/%m/%d at %H:%M"), time]
     end
+  end
+
+  def missing_date
+    return if params[:startdate].include?("to")
+
+    redirect_to @dentist
+    flash[:alert] = "Please provide a start and an end date"
   end
 end
