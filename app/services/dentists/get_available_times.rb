@@ -13,7 +13,6 @@ module Dentists
       total_slots = []
 
       # calculate how many 30 minutes slots are in a day ( easy thanks to rails 6.1)
-      day_span = 10.hours.in_minutes
       number_of_slots = (day_span / 30).to_i
 
       # for each day within the range inputed, we will output the slots
