@@ -10,6 +10,7 @@ const calendar = () => {
     console.log(currentDay())
     inputs.forEach((input) => {
         flatpickr(input, {
+            minDate: currentDay()
         })
     })
 }
