@@ -2,8 +2,8 @@ module Dentists
   class GetAvailableTimes
     def initialize(dentist, start_date, end_date)
       @dentist = dentist
-      @start_date = start_date.to_time
-      @end_date = end_date.to_time
+      @start_date = start_date.to_time.localtime
+      @end_date = end_date.to_time.localtime
     end
 
     def call

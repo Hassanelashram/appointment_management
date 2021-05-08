@@ -7,7 +7,7 @@
             <%= link_to "Find a dentist now", root_url, class: "btn btn-success"  %>
         </div>
     <% else %>
-        <h2>Your Appointments</h2>
+        <h2 class="col-12">Your Appointments</h2>
         <% current_user.appointments.each do |appointment| %>
             <div class="col">
                 <div class="card p-5">
