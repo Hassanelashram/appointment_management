@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <% @dentists.each do |dentist| %>
+            <div class="col-4">
+                <div class="card p-5 m-5">
+                    <%= dentist.name %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

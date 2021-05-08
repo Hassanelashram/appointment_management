@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :dentists, only: %i[index show] do
     resources :appointments, only: %i[create index show]
   end
-  root to: 'pages#home'
+  root to: 'dentists#index'
 end
