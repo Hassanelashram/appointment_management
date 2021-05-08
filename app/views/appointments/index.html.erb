@@ -11,7 +11,7 @@
         <% current_user.appointments.each do |appointment| %>
             <div class="col-4 my-2">
                 <div class="card p-5">
-                    <p>Appointment in: <%= appointment.dentist.name %> On <%= appointment.start_date.to_formatted_s(:long_ordinal) %></p>
+                    <p>Appointment in: <%= appointment.dentist.name %> On <%= appointment.start_date.localtime.to_formatted_s(:long_ordinal) %></p>
                 </div>
             </div>
         <% end %>
