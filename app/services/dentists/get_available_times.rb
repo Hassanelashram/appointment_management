@@ -16,7 +16,7 @@ module Dentists
       # for each day within the range inputed, we will output the slots
       # then remove the already booked ones
       while @start_date <= @end_date
-        active_day = @start_date.beginning_of_day + 8.hours
+        active_day = @start_date.beginning_of_day + + Dentist::DAY_START.to_i.hours
 
         total_slots += number_of_slots.times.with_object([active_day]) do |_index, slots|
           slots << slots.last + 30.minutes
