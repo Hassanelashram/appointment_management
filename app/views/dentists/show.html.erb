@@ -4,9 +4,14 @@
             <%= @dentist.name %>
         </h2>
         <div class="col">
-            <input type="text" placeholder="Start date - End date" name='startdate' id="start-date" class="form-control calendar mb-3" required>
-            <%= link_to "View times", root_url, class: "w-100 btn btn-success" if user_signed_in? %>
-            <%= link_to "Please sign in to view times", new_user_registration_path, class: "btn btn-success" unless user_signed_in? %>
+            <% if user_signed_in? %>
+                <form action="<%= new_dentist_appointment_path(@dentist) %>">
+                    <input type="text" placeholder="Start date - End date" name='startdate' id="start-date" class="form-control calendar mb-3" required>
+                    <button class="btn btn-success w-100" type="submit">View Times</button>
+                </form>
+            <% else %>
+                <%= link_to "Please sign in to view times", new_user_registration_path, class: "btn btn-success" unless user_signed_in? %>
+            <% end %>
         </div>
     </div>
 
