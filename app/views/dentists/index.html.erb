@@ -1,11 +1,12 @@
-<div class="container">
-    <div class="row">
+
+    <div class="row mx-auto text-center">
+        <h2 class="col-12">Find the best dentist</h2>
         <% @dentists.each do |dentist| %>
             <div class="col-4">
-                <div class="card p-5 m-5">
-                    <%= dentist.name %>
+                <div class="card p-5 m-2">
+                    <h3 class="bold"><%= dentist.name %></h3>
+                    <%= link_to "More info", dentist, class: "btn btn-success"  %>
                 </div>
             </div>
         <% end %>
     </div>
-</div>

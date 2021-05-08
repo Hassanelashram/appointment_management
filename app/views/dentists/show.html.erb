@@ -1,0 +1,17 @@
+
+    <div class="row my-2">
+        <h2 class="col-8">
+            <%= @dentist.name %>
+        </h2>
+        <div class="col">
+            calendar goes here
+            <%= link_to "View times", root_url, class: "btn btn-success" if user_signed_in? %>
+            <%= link_to "Please sign in to view times", new_user_registration_path, class: "btn btn-success" unless user_signed_in? %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            description
+        </div>
+    </div>
