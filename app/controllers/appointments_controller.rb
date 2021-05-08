@@ -4,8 +4,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    start_date, end_date = params[:startdate].split("to")
-    @available_times = Dentists::GetAvailableTimes.new(@dentist, start_date, end_date).call
+    @available_times = formatted_time_slots
   end
 
   def create
@@ -14,7 +13,7 @@ class AppointmentsController < ApplicationController
     @appointment.end_date = @appointment.start_date + 30.minutes
 
     if @appointment.save
-      redirect_to dentist_path(@dentist)
+      redirect_to appointments_path
       flash[:notice] = "Appointment created"
     else
       flash[:notie] = @appointment.errors.full_messages
@@ -29,5 +28,12 @@ class AppointmentsController < ApplicationController
 
   def appointment_params
     params.require(:appointment).permit(:start_date)
+  end
+
+  def formatted_time_slots
+    start_date, end_date = params[:startdate].split("to")
+    Dentists::GetAvailableTimes.new(@dentist, start_date, end_date).call.map do |time|
+      [time.strftime("%Y/%m/%d at %H:%M"), time]
+    end
   end
 end
